@@ -7,6 +7,7 @@ import Accounts from './pages/Accounts'
 import AccountDetail from './pages/AccountDetail'
 import Transactions from './pages/Transactions'
 import TransactionDetail from './pages/TransactionDetail'
+import Cash from './pages/Cash'
 import Payments from './pages/Payments'
 import PaymentDetail from './pages/PaymentDetail'
 import BankTransfers from './pages/BankTransfers'
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/accounts/:id" element={<AccountDetail />} />
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/transactions/:id" element={<TransactionDetail />} />
+          <Route path="/cash" element={<Cash />} />
           <Route path="/payments" element={<Payments />} />
           <Route path="/payments/:id" element={<PaymentDetail />} />
           <Route path="/bank-transfers" element={<BankTransfers />} />

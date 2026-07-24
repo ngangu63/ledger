@@ -47,14 +47,36 @@ export default function AccountDetail() {
                   <KeyVal k="Created">{formatDate(account.createdAt)}</KeyVal>
                 </div>
               </div>
-              <button
-                className="btn"
-                onClick={() =>
-                  navigate('/transactions', { state: { presetAccountId: account.id } })
-                }
-              >
-                New Transaction with this account
-              </button>
+              <div className="form-actions">
+                <button
+                  className="btn"
+                  onClick={() =>
+                    navigate('/cash', {
+                      state: { presetAccountId: account.id, mode: 'DEPOSIT' },
+                    })
+                  }
+                >
+                  Deposit cash
+                </button>
+                <button
+                  className="btn secondary"
+                  onClick={() =>
+                    navigate('/cash', {
+                      state: { presetAccountId: account.id, mode: 'WITHDRAW' },
+                    })
+                  }
+                >
+                  Withdraw cash
+                </button>
+                <button
+                  className="btn secondary"
+                  onClick={() =>
+                    navigate('/transactions', { state: { presetAccountId: account.id } })
+                  }
+                >
+                  New Transaction
+                </button>
+              </div>
             </div>
 
             <aside className="panel">

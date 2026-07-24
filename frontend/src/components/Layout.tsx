@@ -13,6 +13,7 @@ const NAV = [
     label: 'Money movement',
     items: [
       { to: '/transactions', ico: '⇄', text: 'Transactions' },
+      { to: '/cash', ico: '＄', text: 'Cash In / Out' },
       { to: '/payments', ico: '▣', text: 'Payments' },
       { to: '/bank-transfers', ico: '◫', text: 'Bank Transfers' },
       { to: '/reimbursements', ico: '↺', text: 'Reimbursements' },

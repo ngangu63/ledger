@@ -6,6 +6,8 @@ import type {
   CreateAccountRequest,
   CreatePaymentRequest,
   CreateTransactionRequest,
+  DepositRequest,
+  WithdrawRequest,
   InitiateTransferRequest,
   LoginRequest,
   PaymentResponse,
@@ -26,6 +28,18 @@ export const createAccount = (body: CreateAccountRequest) =>
   request<AccountResponse>('/accounts', { method: 'POST', body })
 export const getBalance = (accountId: string) =>
   request<BalanceResponse>(`/accounts/${accountId}/balance`)
+export const depositCash = (accountId: string, body: DepositRequest, idempotencyKey?: string) =>
+  request<TransactionResponse>(`/accounts/${accountId}/deposit`, {
+    method: 'POST',
+    body,
+    idempotencyKey,
+  })
+export const withdrawCash = (accountId: string, body: WithdrawRequest, idempotencyKey?: string) =>
+  request<TransactionResponse>(`/accounts/${accountId}/withdraw`, {
+    method: 'POST',
+    body,
+    idempotencyKey,
+  })
 
 // ---- Transactions ----
 export const getTransaction = (id: string) => request<TransactionResponse>(`/transactions/${id}`)

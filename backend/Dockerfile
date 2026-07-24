@@ -7,9 +7,9 @@ COPY src ./src
 RUN mvn -q clean package -DskipTests
 
 # ---- Runtime stage ----
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:17-jre
 WORKDIR /app
-RUN addgroup -S ledger && adduser -S ledger -G ledger
+RUN groupadd -r ledger && useradd -r -g ledger ledger
 COPY --from=build /app/target/ledger-*.jar app.jar
 USER ledger
 EXPOSE 8080

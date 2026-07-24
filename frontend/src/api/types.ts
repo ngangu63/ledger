@@ -56,6 +56,14 @@ export interface BalanceResponse {
   signedBalance: string
   naturalBalance: string
 }
+export interface DepositRequest {
+  amount: string
+  description?: string
+}
+export interface WithdrawRequest {
+  amount: string
+  description?: string
+}
 
 // ---- Transactions ----
 export interface PostingRequest {
