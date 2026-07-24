@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="dot">₪</span> Ledger</div>
+    <div class="nav-label">Overview</div>
+    <div class="nav-item"><span class="ico">▤</span> Dashboard</div>
+    <div class="nav-item"><span class="ico">▦</span> Accounts</div>
+    <div class="nav-label">Money movement</div>
+    <div class="nav-item active"><span class="ico">⇄</span> Transactions</div>
+    <div class="nav-item"><span class="ico">▣</span> Payments</div>
+    <div class="nav-item"><span class="ico">◫</span> Bank Transfers</div>
+    <div class="nav-item"><span class="ico">↺</span> Reimbursements</div>
+    <div class="spacer"></div>
+    <div class="user"><div class="avatar">AD</div><div><div class="who">admin</div><div class="role">ADMIN · can write</div></div></div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div><h1>New Transaction</h1><div class="sub">Balanced double-entry posting</div></div>
+      <button class="btn secondary">Cancel</button>
+    </div>
+    <div class="content">
+      <div class="col-main">
+        <div class="card">
+          <div class="head"><h2>Transaction details</h2></div>
+          <div class="body">
+            <div class="form-row two">
+              <div><label>Currency</label><input value="USD" /><div class="hint">3-letter ISO-4217 (^[A-Z]{3}$)</div></div>
+              <div><label>External Ref (optional)</label><input value="payroll-2026-03" /><div class="hint">Must be globally unique</div></div>
+            </div>
+            <div class="form-row">
+              <label>Description (optional)</label>
+              <input value="March payroll run" />
+            </div>
+
+            <label>Postings · minimum 2</label>
+            <table class="postings">
+              <thead><tr><th style="width:52%">Account</th><th>Direction</th><th style="text-align:right">Amount</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><select><option>Payroll Expense (EXPENSE · USD)</option></select></td>
+                  <td><select><option>DEBIT</option><option>CREDIT</option></select></td>
+                  <td><input value="12,400.0000" style="text-align:right" /></td>
+                  <td><button class="btn ghost" style="padding:6px 10px">✕</button></td>
+                </tr>
+                <tr>
+                  <td><select><option>Operating Cash (ASSET · USD)</option></select></td>
+                  <td><select><option selected>CREDIT</option><option>DEBIT</option></select></td>
+                  <td><input value="12,400.0000" style="text-align:right" /></td>
+                  <td><button class="btn ghost" style="padding:6px 10px">✕</button></td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="btn ghost" style="margin-top:12px">＋ Add posting</button>
+
+            <div class="balance-strip ok">
+              <span>✓ Balanced — debits equal credits</span>
+              <span class="figs">DR 12,400.0000 &nbsp;=&nbsp; CR 12,400.0000</span>
+            </div>
+
+            <div class="form-actions">
+              <label class="badge-note" style="margin-right:auto">🔑 Idempotency-Key auto-generated</label>
+              <button class="btn secondary">Reset</button>
+              <button class="btn">Post Transaction</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h3>TXN a1f0…8c2d</h3>
+        <div class="sub">Preview of the last posted transaction</div>
+        <div class="kv"><span class="k">Status</span><span class="val"><span class="tag posted">POSTED</span></span></div>
+        <div class="kv"><span class="k">External Ref</span><span class="val mono">payroll-2026-03</span></div>
+        <div class="kv"><span class="k">Created</span><span class="val">Mar 31, 2026 09:12</span></div>
+        <div class="kv"><span class="k">Postings</span><span class="val">2</span></div>
+        <div style="margin-top:14px; font-size:13px">
+          <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f1f5f9"><span>Payroll Expense</span><span class="mono">DR 12,400.00</span></div>
+          <div style="display:flex;justify-content:space-between;padding:7px 0"><span>Operating Cash</span><span class="mono">CR 12,400.00</span></div>
+        </div>
+        <div class="actions"><button class="btn danger">Reverse Transaction</button></div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+package com.lukala.ledger.payment;
+
+import java.util.UUID;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PaymentRepository extends JpaRepository<Payment, UUID> {
+}

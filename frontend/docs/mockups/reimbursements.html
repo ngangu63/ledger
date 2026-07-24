@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="dot">₪</span> Ledger</div>
+    <div class="nav-label">Overview</div>
+    <div class="nav-item"><span class="ico">▤</span> Dashboard</div>
+    <div class="nav-item"><span class="ico">▦</span> Accounts</div>
+    <div class="nav-label">Money movement</div>
+    <div class="nav-item"><span class="ico">⇄</span> Transactions</div>
+    <div class="nav-item"><span class="ico">▣</span> Payments</div>
+    <div class="nav-item"><span class="ico">◫</span> Bank Transfers</div>
+    <div class="nav-item active"><span class="ico">↺</span> Reimbursements</div>
+    <div class="spacer"></div>
+    <div class="user"><div class="avatar">AD</div><div><div class="who">admin</div><div class="role">ADMIN · can write</div></div></div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div><h1>Reimbursements</h1><div class="sub">Submit → Approve/Reject → Pay</div></div>
+      <button class="btn"><span>＋</span> New Reimbursement</button>
+    </div>
+    <div class="content">
+      <div class="col-main">
+        <div class="card">
+          <div class="head"><h2>Submit reimbursement</h2></div>
+          <div class="body">
+            <div class="form-row two">
+              <div><label>Requester</label><input value="j.rivera" /></div>
+              <div><label>Amount</label><input value="640.25" /></div>
+            </div>
+            <div class="form-row two">
+              <div><label>Currency</label><input value="USD" /></div>
+              <div><label>Funding Account</label><select><option>Operating Cash (ASSET)</option></select></div>
+            </div>
+            <div class="form-row two">
+              <div><label>Payee Account</label><select><option>Employee Payable (LIABILITY)</option></select></div>
+              <div><label>Description</label><input value="Client travel — flights" /></div>
+            </div>
+            <div class="form-actions"><button class="btn">Submit</button></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="head"><h2>Reimbursements</h2></div>
+          <table>
+            <thead><tr><th>Requester</th><th>Description</th><th>Status</th><th style="text-align:right">Amount</th></tr></thead>
+            <tbody>
+              <tr class="sel"><td class="name">j.rivera</td><td>Client travel — flights</td><td><span class="tag approved">APPROVED</span></td><td class="amt">$640.25</td></tr>
+              <tr><td class="name">m.chen</td><td>Conference tickets</td><td><span class="tag submitted">SUBMITTED</span></td><td class="amt">$1,200.00</td></tr>
+              <tr><td class="name">a.okoro</td><td>Office supplies</td><td><span class="tag paid">PAID</span></td><td class="amt">$88.40</td></tr>
+              <tr><td class="name">l.singh</td><td>Duplicate claim</td><td><span class="tag rejected">REJECTED</span></td><td class="amt">$450.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h3>Reimbursement exp-travel-114</h3>
+        <div class="sub">Requested by j.rivera</div>
+        <div class="hero-box"><div class="lbl">Amount</div><div class="big">$640.25</div><div class="signed">USD · Client travel — flights</div></div>
+        <div class="kv"><span class="k">Status</span><span class="val"><span class="tag approved">APPROVED</span></span></div>
+        <div class="kv"><span class="k">Funding</span><span class="val mono">a1f0…8c2d</span></div>
+        <div class="kv"><span class="k">Payee</span><span class="val mono">b7c3…1e94</span></div>
+        <div class="kv"><span class="k">Decided By</span><span class="val">admin</span></div>
+        <div class="kv"><span class="k">Payment</span><span class="val">— (unpaid)</span></div>
+
+        <label style="margin-top:16px">Actions · current state APPROVED</label>
+        <div class="actions">
+          <button class="btn success" disabled>Approve</button>
+          <button class="btn danger" disabled>Reject</button>
+        </div>
+        <div class="actions"><button class="btn">Pay (OUTBOUND bank payment)</button></div>
+        <div class="hint" style="text-align:center;margin-top:8px">Approve/Reject only from SUBMITTED · Pay only from APPROVED</div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>

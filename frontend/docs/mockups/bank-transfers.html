@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="dot">₪</span> Ledger</div>
+    <div class="nav-label">Overview</div>
+    <div class="nav-item"><span class="ico">▤</span> Dashboard</div>
+    <div class="nav-item"><span class="ico">▦</span> Accounts</div>
+    <div class="nav-label">Money movement</div>
+    <div class="nav-item"><span class="ico">⇄</span> Transactions</div>
+    <div class="nav-item"><span class="ico">▣</span> Payments</div>
+    <div class="nav-item active"><span class="ico">◫</span> Bank Transfers</div>
+    <div class="nav-item"><span class="ico">↺</span> Reimbursements</div>
+    <div class="spacer"></div>
+    <div class="user"><div class="avatar">AD</div><div><div class="who">admin</div><div class="role">ADMIN · can write</div></div></div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div><h1>Bank Transfers</h1><div class="sub">ACH & wire · settles asynchronously</div></div>
+      <button class="btn"><span>＋</span> New Transfer</button>
+    </div>
+    <div class="content">
+      <div class="col-main">
+        <div class="card">
+          <div class="head"><h2>Initiate transfer</h2></div>
+          <div class="body">
+            <div class="form-row two">
+              <div><label>Rail</label><select><option>ACH</option><option>WIRE</option></select></div>
+              <div><label>Currency</label><input value="USD" /></div>
+            </div>
+            <div class="form-row">
+              <label>Amount</label><input value="25,000.00" />
+            </div>
+            <div class="form-row two">
+              <div><label>Source Account</label><select><option>Operating Cash (ASSET)</option></select></div>
+              <div><label>Destination Account</label><select><option>Vendor Settlement (LIABILITY)</option></select></div>
+            </div>
+            <div class="form-row"><label>External Ref (optional)</label><input value="wire-vendor-221" /></div>
+            <div class="form-actions">
+              <label class="badge-note" style="margin-right:auto">🔑 Idempotency-Key auto-generated</label>
+              <button class="btn">Initiate Transfer</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="head"><h2>Transfers</h2></div>
+          <table>
+            <thead><tr><th>Reference</th><th>Rail</th><th>Status</th><th style="text-align:right">Amount</th></tr></thead>
+            <tbody>
+              <tr class="sel"><td class="mono">wire-vendor-221</td><td>WIRE</td><td><span class="tag pending">PENDING</span></td><td class="amt">$25,000.00</td></tr>
+              <tr><td class="mono">ach-payroll-03</td><td>ACH</td><td><span class="tag settled">SETTLED</span></td><td class="amt">$48,200.00</td></tr>
+              <tr><td class="mono">ach-refund-77</td><td>ACH</td><td><span class="tag returned">RETURNED</span></td><td class="amt">$310.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h3>Transfer wire-vendor-221</h3>
+        <div class="sub">WIRE · $25,000.00 USD</div>
+        <div class="kv"><span class="k">Status</span><span class="val"><span class="tag pending">PENDING</span></span></div>
+        <div class="kv"><span class="k">Provider</span><span class="val">ach-sim</span></div>
+        <div class="kv"><span class="k">Provider Ref</span><span class="val mono">trn_7f…2a</span></div>
+        <div class="kv"><span class="k">Transaction</span><span class="val mono">c9d2…7a10</span></div>
+
+        <label style="margin-top:18px">Settlement status</label>
+        <ul class="timeline">
+          <li class="done">Initiated<div class="when">Mar 31, 2026 10:02</div></li>
+          <li class="now">Pending settlement<div class="when">polling every 5s…</div></li>
+          <li>Settled / Returned<div class="when">awaiting bank webhook</div></li>
+        </ul>
+        <div class="actions"><button class="btn secondary">↻ Refresh status</button></div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>

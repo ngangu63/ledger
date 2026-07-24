@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="dot">₪</span> Ledger</div>
+    <div class="nav-label">Overview</div>
+    <div class="nav-item active"><span class="ico">▤</span> Dashboard</div>
+    <div class="nav-item"><span class="ico">▦</span> Accounts</div>
+    <div class="nav-label">Money movement</div>
+    <div class="nav-item"><span class="ico">⇄</span> Transactions</div>
+    <div class="nav-item"><span class="ico">▣</span> Payments</div>
+    <div class="nav-item"><span class="ico">◫</span> Bank Transfers</div>
+    <div class="nav-item"><span class="ico">↺</span> Reimbursements</div>
+    <div class="spacer"></div>
+    <div class="user"><div class="avatar">AD</div><div><div class="who">admin</div><div class="role">ADMIN · can write</div></div></div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div><h1>Dashboard</h1><div class="sub">System health & ledger overview</div></div>
+      <span class="badge-note">● API healthy · /actuator/health</span>
+    </div>
+    <div class="content">
+      <div class="col-main">
+        <div class="stats">
+          <div class="stat"><div class="k">Accounts</div><div class="v">12</div></div>
+          <div class="stat"><div class="k">Transactions (30d)</div><div class="v">348</div></div>
+          <div class="stat"><div class="k">Payments (30d)</div><div class="v">96</div></div>
+          <div class="stat"><div class="k">Pending Transfers</div><div class="v">3</div></div>
+        </div>
+
+        <div class="card">
+          <div class="head"><h2>Account balances</h2><span class="badge-note">natural balance</span></div>
+          <table>
+            <thead><tr><th>Account</th><th>Type</th><th>Currency</th><th style="text-align:right">Balance</th></tr></thead>
+            <tbody>
+              <tr><td class="name">Operating Cash</td><td><span class="tag type">ASSET</span></td><td>USD</td><td class="amt pos">$128,540.00</td></tr>
+              <tr><td class="name">Sales Revenue</td><td><span class="tag type">REVENUE</span></td><td>USD</td><td class="amt pos">$96,300.00</td></tr>
+              <tr><td class="name">Payroll Expense</td><td><span class="tag type">EXPENSE</span></td><td>USD</td><td class="amt pos">$54,820.75</td></tr>
+              <tr><td class="name">Accounts Payable</td><td><span class="tag type">LIABILITY</span></td><td>USD</td><td class="amt pos">$42,110.50</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="head"><h2>Recent activity</h2></div>
+          <table>
+            <thead><tr><th>Type</th><th>Reference</th><th>Status</th><th style="text-align:right">Amount</th></tr></thead>
+            <tbody>
+              <tr><td>Transaction</td><td class="mono">payroll-2026-03</td><td><span class="tag posted">POSTED</span></td><td class="amt">$12,400.00</td></tr>
+              <tr><td>Payment</td><td class="mono">inv-8841</td><td><span class="tag captured">CAPTURED</span></td><td class="amt">$1,980.00</td></tr>
+              <tr><td>Bank Transfer</td><td class="mono">bank:e1a6…</td><td><span class="tag pending">PENDING</span></td><td class="amt">$25,000.00</td></tr>
+              <tr><td>Reimbursement</td><td class="mono">exp-travel-114</td><td><span class="tag approved">APPROVED</span></td><td class="amt">$640.25</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

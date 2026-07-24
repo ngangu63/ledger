@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="dot">₪</span> Ledger</div>
+    <div class="nav-label">Overview</div>
+    <div class="nav-item"><span class="ico">▤</span> Dashboard</div>
+    <div class="nav-item"><span class="ico">▦</span> Accounts</div>
+    <div class="nav-label">Money movement</div>
+    <div class="nav-item"><span class="ico">⇄</span> Transactions</div>
+    <div class="nav-item active"><span class="ico">▣</span> Payments</div>
+    <div class="nav-item"><span class="ico">◫</span> Bank Transfers</div>
+    <div class="nav-item"><span class="ico">↺</span> Reimbursements</div>
+    <div class="spacer"></div>
+    <div class="user"><div class="avatar">AD</div><div><div class="who">admin</div><div class="role">ADMIN · can write</div></div></div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div><h1>Payments</h1><div class="sub">Charge & refund card / bank payments</div></div>
+      <button class="btn"><span>＋</span> New Payment</button>
+    </div>
+    <div class="content">
+      <div class="col-main">
+        <div class="card">
+          <div class="head"><h2>Charge a payment</h2></div>
+          <div class="body">
+            <div class="form-row two">
+              <div><label>Direction</label><select><option>INBOUND</option><option>OUTBOUND</option></select></div>
+              <div><label>Method</label><select><option>CARD</option><option>BANK</option></select></div>
+            </div>
+            <div class="form-row two">
+              <div><label>Amount</label><input value="1,980.00" /></div>
+              <div><label>Currency</label><input value="USD" /></div>
+            </div>
+            <div class="form-row two">
+              <div><label>Source Account</label><select><option>Customer Card Clearing (ASSET)</option></select></div>
+              <div><label>Destination Account</label><select><option>Operating Cash (ASSET)</option></select></div>
+            </div>
+            <div class="form-row">
+              <label>Instrument Token (optional)</label>
+              <input value="tok_visa_4242" />
+            </div>
+            <div class="form-actions">
+              <label class="badge-note" style="margin-right:auto">🔑 Idempotency-Key auto-generated</label>
+              <button class="btn">Charge Payment</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="head"><h2>Recent payments</h2></div>
+          <table>
+            <thead><tr><th>Reference</th><th>Direction</th><th>Method</th><th>Status</th><th style="text-align:right">Amount</th></tr></thead>
+            <tbody>
+              <tr class="sel"><td class="mono">inv-8841</td><td><span class="tag inbound">INBOUND</span></td><td>CARD</td><td><span class="tag captured">CAPTURED</span></td><td class="amt">$1,980.00</td></tr>
+              <tr><td class="mono">inv-8830</td><td><span class="tag inbound">INBOUND</span></td><td>CARD</td><td><span class="tag settled">SETTLED</span></td><td class="amt">$540.00</td></tr>
+              <tr><td class="mono">vendor-221</td><td><span class="tag outbound">OUTBOUND</span></td><td>BANK</td><td><span class="tag failed">FAILED</span></td><td class="amt">$7,200.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h3>Payment inv-8841</h3>
+        <div class="sub">CARD · INBOUND</div>
+        <div class="hero-box"><div class="lbl">Amount</div><div class="big">$1,980.00</div><div class="signed">USD · captured Mar 30, 2026</div></div>
+        <div class="kv"><span class="k">Status</span><span class="val"><span class="tag captured">CAPTURED</span></span></div>
+        <div class="kv"><span class="k">Provider</span><span class="val">stripe-sim</span></div>
+        <div class="kv"><span class="k">Provider Ref</span><span class="val mono">ch_3P…9x</span></div>
+        <div class="kv"><span class="k">Transaction</span><span class="val mono">a1f0…8c2d</span></div>
+        <div class="kv"><span class="k">Failure Reason</span><span class="val">—</span></div>
+        <div class="actions"><button class="btn danger">Refund</button></div>
+        <div class="hint" style="text-align:center;margin-top:8px">Refund enabled only for CAPTURED / SETTLED</div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
