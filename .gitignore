@@ -12,6 +12,10 @@ frontend/dist-ssr/
 *.log
 npm-debug.log*
 
+# Secrets / local env (keep .env.example tracked)
+.env
+!.env.example
+
 # Editors / OS
 .idea/
 .vscode/*

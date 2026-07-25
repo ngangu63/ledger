@@ -23,11 +23,46 @@ This builds and starts three containers:
 | Service    | URL                            | Notes                                   |
 | ---------- | ------------------------------ | --------------------------------------- |
 | frontend   | http://localhost:5173          | nginx serving the built React app       |
-| backend    | http://localhost:8080          | Spring Boot API (`/api/v1`, `/actuator`)|
+| backend    | http://localhost:8081          | Spring Boot API (`/api/v1`, `/actuator`)|
 | postgres   | localhost:5432                 | database `ledger` / user `ledger`       |
 
 The frontend proxies `/api` and `/actuator` to the backend, so open
 **http://localhost:5173** and everything works — no CORS or extra config.
+
+> The backend container listens on `8080` internally but is published on host
+> port **8081** (see `docker-compose.yml`) so it doesn't clash with a backend
+> you might run locally on `8080`.
+
+## Configuration & secrets
+
+Every setting has a safe **dev default baked in**, so a fresh clone runs with
+`docker compose up --build` and no extra steps — the JWT signing secret,
+database password, and seed login all fall back to development values.
+
+For any shared or production deployment, override them. Copy the template and
+edit it — Compose reads `.env` automatically:
+
+```bash
+cp .env.example .env
+```
+
+| Variable            | Purpose                                   | Dev default        |
+| ------------------- | ----------------------------------------- | ------------------ |
+| `LEDGER_JWT_SECRET` | Base64 256-bit secret that signs JWTs     | public dev value   |
+| `POSTGRES_PASSWORD` | Postgres password (DB **and** backend)    | `ledger`           |
+
+Generate a strong JWT secret:
+
+```bash
+openssl rand -base64 32
+```
+
+Seed login for the API/UI is `admin` / `admin123` (role `ADMIN`); these live in
+the backend source and are intended for development only.
+
+> **Never deploy with the committed dev defaults.** They are public in this
+> repository. `.env` is gitignored so your real secrets stay out of version
+> control; only `.env.example` is tracked.
 
 Stop with `Ctrl+C`, or run detached and manage it:
 

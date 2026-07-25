@@ -5,7 +5,8 @@ services:
     environment:
       POSTGRES_DB: ledger
       POSTGRES_USER: ledger
-      POSTGRES_PASSWORD: ledger
+      # Override via a .env file or the environment; falls back to a dev default.
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ledger}
     ports:
       - "5432:5432"
     volumes:
@@ -22,8 +23,11 @@ services:
     environment:
       DB_URL: jdbc:postgresql://postgres:5432/ledger
       DB_USER: ledger
-      DB_PASSWORD: ledger
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-ledger}
       SERVER_PORT: "8080"
+      # Base64-encoded 256-bit JWT secret. Override in production; the fallback is
+      # a public dev-only default (see .env.example).
+      LEDGER_JWT_SECRET: ${LEDGER_JWT_SECRET:-c2VjdXJlLWRldi1zZWNyZXQtY2hhbmdlLW1lLWluLXByb2R1Y3Rpb24tMTIzNDU2}
     ports:
       # Host 8081 -> container 8080 (avoids clash with a locally-run backend on 8080)
       - "8081:8080"
